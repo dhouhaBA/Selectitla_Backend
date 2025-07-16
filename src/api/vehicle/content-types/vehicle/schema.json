@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "Vehicle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "style": {
+      "type": "string"
+    },
+    "msrp": {
+      "type": "string"
+    },
+    "daily": {
+      "type": "decimal"
+    },
+    "mice": {
+      "type": "decimal"
+    },
+    "new_daily": {
+      "type": "decimal"
+    },
+    "deposit": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "owner": {
+      "type": "string",
+      "required": true
+    },
+    "seats": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::partner.partner",
+      "inversedBy": "vehicles"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": false
+    },
+    "reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reservation.reservation",
+      "mappedBy": "vehicle"
+    },
+    "make": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::make.make",
+      "inversedBy": "vehicles"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::brand.brand"
+    }
+  }
+}

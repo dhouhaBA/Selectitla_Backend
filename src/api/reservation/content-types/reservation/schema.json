@@ -1,0 +1,111 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reservations",
+  "info": {
+    "singularName": "reservation",
+    "pluralName": "reservations",
+    "displayName": "Reservation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pickup_date": {
+      "type": "date",
+      "required": false
+    },
+    "pickup_time": {
+      "type": "time",
+      "required": false
+    },
+    "drop_off_date": {
+      "type": "date",
+      "required": false
+    },
+    "drop_off_time": {
+      "type": "time",
+      "required": false
+    },
+    "pickup_location": {
+      "type": "string"
+    },
+    "drop_off_location": {
+      "type": "string"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "reservations"
+    },
+    "tax": {
+      "type": "float",
+      "required": false
+    },
+    "total_amount": {
+      "type": "float",
+      "required": true
+    },
+    "added_amount": {
+      "type": "float",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Confirmed",
+        "Canceled"
+      ],
+      "default": "Pending"
+    },
+    "rejection_reason": {
+      "type": "text"
+    },
+    "vehicle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vehicle.vehicle",
+      "inversedBy": "reservations"
+    },
+    "villa": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::villa.villa",
+      "inversedBy": "reservations"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "reservations"
+    },
+    "seats": {
+      "type": "integer",
+      "min": 1
+    },
+    "bottles": {
+      "type": "integer",
+      "min": 1
+    },
+    "credit_card": {
+      "type": "json",
+      "required": true
+    },
+    "documents": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_events",
+  "info": {
+    "singularName": "category-event",
+    "pluralName": "category-events",
+    "displayName": "Category_Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::event.event",
+      "mappedBy": "category_events"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "villas",
+  "info": {
+    "singularName": "villa",
+    "pluralName": "villas",
+    "displayName": "Villa",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "city": {
+      "type": "string"
+    },
+    "rooms": {
+      "type": "integer"
+    },
+    "baths": {
+      "type": "integer"
+    },
+    "pool": {
+      "type": "integer"
+    },
+    "view": {
+      "type": "string"
+    },
+    "sleeps": {
+      "type": "integer"
+    },
+    "daily": {
+      "type": "decimal"
+    },
+    "new_daily": {
+      "type": "decimal"
+    },
+    "deposit": {
+      "type": "decimal"
+    },
+    "description": {
+      "type": "text"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "minioeuvre_daily": {
+      "type": "string"
+    },
+    "partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::partner.partner",
+      "inversedBy": "villas"
+    },
+    "category_villas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-villa.category-villa",
+      "inversedBy": "villas"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": false
+    },
+    "owner": {
+      "type": "string"
+    },
+    "reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reservation.reservation",
+      "mappedBy": "villa"
+    }
+  }
+}

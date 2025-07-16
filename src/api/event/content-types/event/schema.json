@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "float"
+    },
+    "promiting_info": {
+      "type": "text"
+    },
+    "name_promoter": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "partner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::partner.partner",
+      "inversedBy": "events"
+    },
+    "total_bottles": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "total_seats": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "remaining_seats": {
+      "type": "integer",
+      "min": 1
+    },
+    "remaining_bottles": {
+      "type": "integer",
+      "min": 1
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "start_time": {
+      "type": "time",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_time": {
+      "type": "time",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "category_events": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category-event.category-event",
+      "inversedBy": "events"
+    },
+    "reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reservation.reservation",
+      "mappedBy": "event"
+    }
+  }
+}

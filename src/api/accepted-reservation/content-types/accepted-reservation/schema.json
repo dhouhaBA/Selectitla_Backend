@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accepted_reservations",
+  "info": {
+    "singularName": "accepted-reservation",
+    "pluralName": "accepted-reservations",
+    "displayName": "acceptedReservation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reservation_demand": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::reservation.reservation"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "mappedBy": "accepted_reservation"
+    }
+  }
+}

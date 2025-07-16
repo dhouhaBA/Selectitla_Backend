@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_villas",
+  "info": {
+    "singularName": "category-villa",
+    "pluralName": "category-villas",
+    "displayName": "Category_Villa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "villas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::villa.villa",
+      "mappedBy": "category_villas"
+    }
+  }
+}
