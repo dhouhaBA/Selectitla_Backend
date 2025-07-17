@@ -1,11 +1,12 @@
 {
   "kind": "collectionType",
-  "collectionName": "brands",
-  "info": {
-    "singularName": "brand",
-    "pluralName": "brands",
-    "displayName": "Brand"
-  },
+  "collectionName": "brand-modules",
+ "info": {
+  "singularName": "brand-module",
+  "pluralName": "brand-modules",
+  "displayName": "Brand Module",
+  "description": ""
+},
   "options": {
     "draftAndPublish": true
   },
